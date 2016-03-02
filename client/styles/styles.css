@@ -74,6 +74,7 @@ a {
 
 #main-search {
   width: 75%;
+  z-index: 0;
 }
 
 #form-align {
@@ -341,9 +342,8 @@ textarea {
 }
 
 #dist-input {
-  width: 30px;
-  height: 20px;
-  font-size: 17px;
+  width: 1.5em;
+  height: 1.2em;
 }
 
 #about-product p {
