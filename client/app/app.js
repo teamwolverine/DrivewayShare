@@ -1,7 +1,6 @@
 var app = angular.module("Driveway-Share", [
 	"ui.router",
-	"ui.bootstrap",
-	"ngMessages"
+	"ui.bootstrap"
 ])
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider){
