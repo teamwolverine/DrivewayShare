@@ -71,15 +71,15 @@
   padding: 0 5px;
 }
 
-#main-search button {
+/*#main-search button {
   width: 100px;
   height: 21px;
   margin-left: 5px;
-}
+}*/
 
 .largeSearch {
-  line-height: 600px;
-  background-image: url("../assets/bg.jpg");
+  line-height: 700px;
+  background-image: url("../assets/carousel1.png");
 }
 
 .smallSearch {
@@ -255,10 +255,6 @@
   display: inline-block;
   vertical-align: top;
   padding: 50px 32px;
-}
-
-textarea {
-  resize: none;
 }
 
 .md-title, .md-input::-webkit-input-placeholder, .md-button {

@@ -1,5 +1,7 @@
 var app = angular.module("Driveway-Share", [
 	"ui.router",
+	"ui.bootstrap",
+	"ngMessages"
 ])
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider){
@@ -54,7 +56,7 @@ var app = angular.module("Driveway-Share", [
 
     $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
         if (toState.authenticate && !Auth.isAuth()){
-          // User isn’t authenticated, provides alternate route
+          // User isn’t authenticated
           $state.transitionTo("home");
           event.preventDefault();
         }

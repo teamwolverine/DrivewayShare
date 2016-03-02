@@ -1,6 +1,5 @@
 app.factory("Listings", function($http, $window){
 
-  // Fetches Google geo-location object for input address
   var sendAddress = function(element_id, cb){
     var address = document.getElementById(element_id).value;
     var geocoder = new google.maps.Geocoder();
@@ -57,7 +56,6 @@ app.factory("Listings", function($http, $window){
     });
   };
 
-  // Includes token in request to server to provide User's corresponding 'id' in user table
   var getUserListings = function() {
     return $http({
       method: "POST",
@@ -90,8 +88,6 @@ app.factory("Listings", function($http, $window){
     });
   };
 
-  // Google api output of addresses is not consistent
-  // Parse of raw address data as alternative
   var addressParser = function(address) {
     var arr = [];
     var commas = address.split(",");

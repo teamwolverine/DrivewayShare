@@ -69,9 +69,10 @@ app.post("/api/search", function (req, res) {
 app.post("/api/create", function(req, res) {
 
   var data = req.body;
-
+	console.log(data);
 	var id = util.getCurrentUserID(req.body.token);
 
+	console.log(data.description);
 	var newListing = new Listing({
 		user_id: id,
 		street_address: data.street,
@@ -93,7 +94,7 @@ app.post("/api/create", function(req, res) {
 
 });
 
-// route for deleting a previously created listing
+//route for deleting a previously created listing
 app.post("/api/delete", function(req, res) {
 
 	var listingId = req.body.listingId;
@@ -104,7 +105,7 @@ app.post("/api/delete", function(req, res) {
 		})
 });
 
-// route for retrieving current user's listings
+//route for retrieving current user's listings
 app.post("/api/userListing", function(req, res) {
 
 	var id = util.getCurrentUserID(req.body.token);
