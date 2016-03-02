@@ -11,12 +11,12 @@
   <div id="signup">
     <form class="md-form" name="signupForm" ng-submit="signup()">
       <h4 class="md-title">Create Account</h4>
-      <input class="md-input" placeholder="First Name" type="text" ng-model="user.first_name" required>
-      <input class="md-input" placeholder="Last Name" type="text" ng-model="user.last_name" required>
-      <input class="md-input" placeholder="Email" type="text" ng-model="user.email" required>
+      <input class="md-input" placeholder="First Name" type="text" ng-model="user.first_name" ng-keypress="updateBody();" required>
+      <input class="md-input" placeholder="Last Name" type="text" ng-model="user.last_name" ng-keypress="updateBody();" required>
+      <input class="md-input" placeholder="Email" type="text" ng-model="user.email" ng-keypress="updateBody();" required>{{passwordLength}} characters remaining</input>
       <input class="md-input" placeholder="Phone" type="text" ng-model="user.phone_number" required>
-      <input class="md-input" placeholder="Username" type="text" ng-model="user.username" required>
-      <input class="md-input" placeholder="Password" type="password" ng-model="user.password" required>
+      <input class="md-input" placeholder="Username" type="text" ng-model="user.username" ng-keypress="updateBody();" required>
+      <input class="md-input" placeholder="Password" type="password" ng-model="user.password" ng-keypress="updateBody();" required>{{passwordLength}} characters remaining</input>
       <button class="md-button" ng-disabled="validatePhoneNumber()">Submit</button>
     </form>
   </div>
