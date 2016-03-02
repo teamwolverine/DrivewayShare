@@ -45,6 +45,11 @@ app.controller("HomeController", function($scope, Nav, Listings) {
     window.location.href = mail;
   };
 
+  $scope.callPhone = function(phone){
+    var phone = 'tel:' + phone;
+    window.location.href = phone;
+  }
+
   $scope.toggleExpand = function(item) {
     item.expand = !item.expand;
   };
