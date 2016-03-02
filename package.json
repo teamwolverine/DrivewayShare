@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ThortyTwo/DrivewayShare#readme",
   "dependencies": {
+    "angular-ui-bootstrap": "^1.2.1",
     "bcrypt": "^0.8.5",
     "bcrypt-nodejs": "0.0.3",
     "bluebird": "^3.3.1",

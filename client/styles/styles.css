@@ -324,20 +324,70 @@ textarea {
   color: white;
 }
 
-#about {
-  padding: 20px;
-}
-
 #dist-input {
   width: 30px;
   height: 20px;
   font-size: 17px;
 }
 
-#about-product p {
-  white-space: pre-wrap;
+#aaa {
+   padding: 8%;
+}
+#bbb {
+   border: 5px solid #00796B;
+   width: 90%;
+   background-color: black;
+   opacity: 0.8;
+}
+#breaker {
+   background-color: #00796B;
+   width: 100%;
+   height: 10px;
+   position: relative;
 }
 
+#ccc {
+   padding: 7%;
+   right: 0px;
+   color: white;
+   font-weight:bolder;
+}
+
+#top {
+   position: relative;
+   width: 100%;
+   background-color: white;
+   height: 200px;
+   text-align: center;
+}
+#bottom {
+   position: relative;
+   width: 100%;
+   background-color: #00796B;
+   height: 200px;
+}
+#backDiv {
+   background-size:cover;
+   background-image: url("../assets/emptyGarage.jpg");
+   background-repeat: no-repeat;
+   background-position: center;
+
+}
+.name {
+   color: white;
+}
+.Title {
+   color: white;
+}
+.holder {
+   border: 4px solid black;
+   width: 200px;
+   text-align: center;
+   padding-top: -30%;
+   border-radius: 3%;
+   display: inline-block;
+   margin-top: -10%;
+}
 .no-bullet {
   list-style-type: none;
 }
