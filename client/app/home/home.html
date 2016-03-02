@@ -1,9 +1,19 @@
 <div id="home-container">
 
-  <form id="main-search" ng-submit="getSearch()" ng-class="listPopulated ? 'smallSearch' : 'largeSearch'">
+  <div id="form-wrapper" ng-class="listPopulated ? 'smallSearch' : 'largeSearch'">
+    <form class="center-block" id="main-search" ng-submit="getSearch()">
+      <div id="form-align" class="input-group">
+        <input id="main-search-input" type="text" class="form-control input-lg" ng-model="search" required="">
+        <span class="input-group-btn">
+          <button class="btn btn-primary btn-lg" id="main-search-button" type="submit">Search</button>
+        </span>
+      </div>
+    </form>
+  </div>
+<!--   <form id="main-search" ng-submit="getSearch()" ng-class="listPopulated ? 'smallSearch' : 'largeSearch'">
     <input id="main-search-input" type="text" ng-model="search" required="">
     <button type="submit">Search</button>
-  </form>
+  </form> -->
 
   <div class="shadow"></div>
 
@@ -46,5 +56,3 @@
   </section>
 
 </div>
-
-
