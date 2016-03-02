@@ -35,8 +35,12 @@
         </div>
         <div ng-show="item.expand">
           <p class="list-contact"><span>Owner: </span> <strong>{{ item.username }}</strong></p>
-          <p class="list-contact"><span>Email: </span> <a href=# ng-click="sendEmail(item.email)">{{ item.email }}</a></p>
-          <p class="list-contact"><span>Phone: </span> {{ item.phone }}</p>
+          <p class="list-contact"><span>Connect via </span><a target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to={{ item.email }}&amp;su=Parking%20spot%20request!&amp;body=Powered%20by%20DrivewayShare" class="gmail">gmail</a></p>
+          <p class="list-contact"><span>Connect via </span><a target="_blank" href="http://compose.mail.yahoo.com/?to={{ item.email }}&amp;subj=Parking%20spot%20request!&amp;body=Powered%20by%20DrivewayShare" class="yahoo">yahoo mail</a></p>
+          <p class="list-contact"><span>Connect via </span><a target="_blank" href="https://mail.live.com/default.aspx?rru=compose&amp;to={{ item.email }}&amp;subject=Parking%20spot%20request!&amp;body=Powered%20by%20DrivewayShare" class="msmail">hotmail, outlook, live mail</a></p>
+          <p class="list-contact"><span>Connect via </span><a target="_blank" href="http://mail.aol.com/mail/compose-message.aspx?to={{ item.email }}&amp;subject=Parking%20spot%20request!&amp;body=Powered%20by%20DrivewayShare" class="aol">aol mail</a></p>
+          <p class="list-contact"><span>Connect via </span><a href=# ng-click="sendEmail(item.email)">desktop mail</a></p>
+          <p class="list-contact"><span>Call </span><a href=# ng-click="callPhone(item.phone)">{{ item.username }}</a></p>
           <p class="list-contact-description" ng-show="item.listing.description">{{ item.listing.description }}</p>
         </div>
       </li>
@@ -44,3 +48,5 @@
   </section>
 
 </div>
+
+
