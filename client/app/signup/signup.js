@@ -1,7 +1,5 @@
 app.controller("SignupController", function($scope, Auth, Nav, $location, $window){
 
-	$scope.user = {};
-
   Nav.setPage(4);
 
 	$scope.signup = function() {
@@ -12,7 +10,12 @@ app.controller("SignupController", function($scope, Auth, Nav, $location, $windo
       Nav.setPage(3);
 		})
 		.catch(function(error) {
-			console.error(error);
+			swal({
+				title: 'User already exists!',
+				text: "This username already exists. Please choose another one.",
+				type: "error",
+				confirmButtonText: "OK"
+			});
 		})
 	};
 
@@ -20,7 +23,12 @@ app.controller("SignupController", function($scope, Auth, Nav, $location, $windo
 	  Auth.signin($scope.user)
 	  .then(function (token) {
 	    if(token === undefined){
-	      alert("WRONG!!!!");
+	      swal({
+					title: 'User not found!',
+					text: 'Double check your username/password or create a new account!',
+					type: 'error',
+					confirmButtonText: 'AWESOME'
+				});
 	    } else {
 		  	$window.localStorage.setItem("authentication", token);
 		  	$location.path("/user");
@@ -31,5 +39,11 @@ app.controller("SignupController", function($scope, Auth, Nav, $location, $windo
 	    console.error(error);
 	  });
 	};
-
+  $scope.validatePhoneNumber = function(){
+		var number = $scope.user.phone_number.replace(/\D/g, '');
+			if(number.length===10){
+				return false;
+			}
+		return true;
+	};
 });
