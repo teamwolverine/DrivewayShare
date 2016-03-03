@@ -133,9 +133,11 @@ app.post("/api/toggle", function(req, res) {
 });
 
 app.post("/api/message", function(req, res){
+	console.log("+++line 137 server.js ", req.body.username)
 	var recipientEmail = req.body.email;
+	var recipientUsername = req.body.username;
 	var messageBody = req.body.msg;
-	console.log("+++ line 137 server.js ", req.body.token)
+	//console.log("+++ line 137 server.js ", req.body.token)
 	var token = req.body.token;
 	var id = util.getCurrentUserID(token);
 	var userEmail;
@@ -156,13 +158,12 @@ app.post("/api/message", function(req, res){
 		.fetch()
 		.then(function(user){
 			console.log("+++line 153 server.js ", user.attributes);
-
 		var mailOptions = {
     	from: "drivewaysharemks@gmail.com", // sender address
     	to: recipientEmail, // list of receivers
     	replyTo: user.attributes.email,
-    	subject: "You have a parking spot request from " + user.attributes.username, // Subject line
-    	text: messageBody, // plaintext body
+    	subject: "Hi, " + recipientUsername + " You have a parking spot request from " + user.attributes.username, // Subject line
+    	text: messageBody + "\r\n\n\nPowered by DrivewayShare\ndrivewayshare.herokuapp.com" // plaintext body
 		}
 
 		// send mail with defined transport object
