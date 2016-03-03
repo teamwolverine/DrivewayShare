@@ -46,15 +46,20 @@ a {
   display: inline-block;
   text-decoration: none;
   color: white;
-  font-size: 2em;
+  font-size: 1.8em;
   padding: 0 25px;
   cursor: pointer;
 }
 
 .nav-item:hover {
-  color: #EEFF41;
+  /*color: #EEFF41;*/
+  color: #FFF;
   background-color: #018A6C;
   text-decoration: none;
+}
+
+.nav-item:active {
+  color: #FFF;
 }
 
 .shadow {
@@ -91,18 +96,27 @@ a {
   border: 1px solid #00796B;
 }
 
+#main-search-button:hover {
+  background-color: #018A6C;
+}
+
 .largeSearch {
   height: 500px; 
   background-image: url("../assets/bg.jpg");
+  background-size: cover;
 }
 
 .smallSearch {
   background: #009688;
 }
 
+#searchHeading {
+  margin: 0;
+}
+
 #google-map {
   width: 100%;
-  min-width: 400px;
+  /*min-width: 400px;*/
   height: 400px;
   margin: 15px 0;
 }
@@ -110,17 +124,19 @@ a {
 #main-list {
   width: 75%;
   margin: 0 auto;
-  padding-top: 15px;
-  padding-bottom: 50px;
+  padding-top: 10px;
+  padding-bottom: 30px;
 }
 
 #main-list h1 {
   text-align: center;
 }
 
-.dropdown {
-  width: 1%;
+.chevron {
+  font-size: 2em;
   cursor: pointer;
+  margin-top: 13px;
+  margin-bottom: 13px;
 }
 
 .list-headers, .list-item {
@@ -139,11 +155,22 @@ a {
 
 .list-item p {
   display: inline-block;
+  font-size: 1.6em;
+  margin-top: 10px;
 }
 
 .list-address {
   width: 60%;
   padding-left: 15px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.clickable:hover {
+  cursor: pointer;
+  background-color: #eee;
 }
 
 .list-price, .list-distance {
@@ -373,4 +400,25 @@ textarea {
 
 .red-circle {
   background-color: #DD2C00;
+}
+
+/*Video*/
+
+video { 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  transform: scale(1.0);
+  background: url('') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+}
+.stopfade { 
+   opacity: .5;
 }
