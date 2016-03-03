@@ -101,7 +101,7 @@ a {
 }
 
 .largeSearch {
-  height: 500px; 
+  height: 500px;
   background-image: url("../assets/bg.jpg");
   background-size: cover;
 }
@@ -421,4 +421,77 @@ video {
 }
 .stopfade { 
    opacity: .5;
+}
+
+#aaa {
+   padding: 8%;
+}
+#bbb {
+   border: 5px solid #00796B;
+   width: 90%;
+   background-color: black;
+   opacity: 0.8;
+}
+#breaker {
+   background-color: #00796B;
+   width: 100%;
+   height: 10px;
+   position: relative;
+}
+
+#ccc {
+   padding: 7%;
+   right: 0px;
+   color: white;
+   font-weight:bolder;
+}
+
+#top {
+   position: relative;
+   width: 100%;
+   background-color: white;
+   height: 20em;
+   text-align: center;
+}
+#bottom {
+   position: relative;
+   width: 100%;
+   background-color: #00796B;
+   height: 20em;
+}
+#backDiv {
+   background-size:cover;
+   background-image: url("../assets/emptyGarage.jpg");
+   background-repeat: no-repeat;
+   background-position: center;
+
+}
+.name {
+   color: white;
+   font-size: 200%;
+}
+.Title {
+   font-size: 200%;
+   color: white;
+}
+
+.pic {
+   height: 100%;
+   width: 100%;
+}
+
+.holder {
+   border: 0.5em solid black;
+   width: 19%;
+   text-align: center;
+   padding-top: -30%;
+   margin-left: 2.5%;
+   margin-right: 2.5%;
+   border-radius: 3%;
+   display: inline-block;
+   margin-top: -10%;
+}
+.holder:hover {
+   box-shadow: 4px 4px 2px black;
+   border: 0.6em solid black;
 }

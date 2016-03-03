@@ -111,8 +111,22 @@ app.factory("Listings", function($http, $window){
     sendAddress: sendAddress
   };
 })
-.factory("Auth", function($http, $location, $window) {
+.factory("Message", function($http){
+   var token = '';
+  var sendMessage = function(obj){
+    return $http ({
+      method: "POST",
+      url: "api/message",
+      data: obj
+    })
+    .then(function(res){
+      return res.data
+    })
+  }
+  return {sendMessage: sendMessage}
 
+})
+.factory("Auth", function($http, $location, $window) {
   var signin = function(user) {
     return $http ({
       method: "POST",
@@ -120,6 +134,7 @@ app.factory("Listings", function($http, $window){
       data: user
     })
     .then(function(res) {
+      token = res.data.token;
       return res.data.token;
     });
   };
@@ -134,6 +149,11 @@ app.factory("Listings", function($http, $window){
       return res.data.token;
     });
   };
+
+  var getToken = function(){
+    console.log('+++ line 156 services.js ', $window.localStorage.getItem("authentication"))
+    return $window.localStorage.getItem("authentication");
+  }
 
   var isAuth = function() {
     return !!$window.localStorage.getItem("authentication");
@@ -150,6 +170,7 @@ app.factory("Listings", function($http, $window){
 
   return {
     signin: signin,
+    getToken: getToken,
     signup: signup,
     isAuth: isAuth,
     isSignedIn: isSignedIn,
