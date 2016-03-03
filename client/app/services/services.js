@@ -109,7 +109,7 @@ app.factory("Listings", function($http, $window){
   };
 })
 .factory("Message", function($http){
-
+   var token = '';
   var sendMessage = function(obj){
     return $http ({
       method: "POST",
@@ -124,7 +124,6 @@ app.factory("Listings", function($http, $window){
 
 })
 .factory("Auth", function($http, $location, $window) {
-  
   var signin = function(user) {
     return $http ({
       method: "POST",
@@ -132,6 +131,7 @@ app.factory("Listings", function($http, $window){
       data: user
     })
     .then(function(res) {
+      token = res.data.token;
       return res.data.token;
     });
   };
