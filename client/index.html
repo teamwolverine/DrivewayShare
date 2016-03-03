@@ -5,6 +5,9 @@
     <title>DrivewayShare</title>
     <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="lib/sweetalert2/dist/sweetalert2.css" rel="stylesheet" type"text/css">
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="lib/sweetalert2/dist/sweetalert2.css">
+    <link rel="stylesheet" type="text/css" href="lib/angular-bootstrap/ui-bootstrap-csp.css">
     <link rel="stylesheet" type="text/css" href="styles/styles.css"/>
     <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
 
@@ -17,7 +20,7 @@
         <nav id="nav-links">
           <a class="nav-item" href="#/home" ng-class="{'active-page': isSet(1)}" ng-click="setPage(1)">Search</a>
           <a class="nav-item" href="#/about" ng-class="{'active-page': isSet(2)}" ng-click="setPage(2)">About</a>
-          <a class="nav-item" ng-show="isSignedIn()" href="#/user" ng-class="{'active-page': isSet(3)}" ng-click="setPage(3)">Profile</a>
+          <a class="nav-item" ng-show="isSignedIn()" href="#/user" ng-class="{'active-page': isSet(3)}" ng-click="setPage(3)">Listings</a>
           <a class="nav-item" ng-show="!isSignedIn()" href="#/signup" ng-class="{'active-page': isSet(4)}" ng-click="setPage(4)">Sign In</a>
           <a class="nav-item" ng-show="isSignedIn()" ng-click="signout()">Sign Out</a>
         </nav>
@@ -35,6 +38,9 @@
     <script src="lib/angular-ui-mask/dist/mask.min.js"></script>
     <script src="lib/sweetalert2/dist/sweetalert2.min.js"></script>
     <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="lib/sweetalert2/dist/sweetalert2.min.js"></script>
     <script src="lib/lodash/lodash.js"></script>
     <script src="app/app.js"></script>
     <script src="app/home/home.js"></script>
