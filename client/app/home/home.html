@@ -1,11 +1,11 @@
 <div id="home-container">
 
   <div id="videoSearch">
-<!--     <video autoplay poster="" id="bgvid" loop ng-show="!listPopulated">
+    <video autoplay poster="" id="bgvid" loop ng-show="!listPopulated">
       <source src="assets/video.mp4" type="video/mp4">
-    </video> -->
+    </video>
 
-    <div id="form-wrapper" ng-class="listPopulated ? 'smallSearch' : 'largeSearch'">
+    <div class="form-wrapper" ng-class="listPopulated ? 'smallSearch' : 'largeSearch'">
       <form class="center-block" id="main-search" ng-submit="getSearch()">
         <div id="form-align" class="input-group">
           <input id="main-search-input" type="text" class="form-control input-lg" ng-model="search" required="">
@@ -14,7 +14,12 @@
           </span>
         </div>
       </form>
+
+      <div id="searchFooterOverlay"></div>
+      <div id="centerTextOverlay"><h1 class="welcome">WELCOME</h1><h4>Easily find, rent, and list available parking spaces in your city.</h4></div>
     </div>
+ 
+
   </div>
 
   <div class="shadow"></div>
