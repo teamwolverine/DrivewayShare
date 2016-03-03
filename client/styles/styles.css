@@ -459,6 +459,7 @@ video {
   background: url('') no-repeat;
   background-size: cover;
   transition: 1s opacity;
+  background-color: #111;
 }
 .stopfade { 
    opacity: .5;
