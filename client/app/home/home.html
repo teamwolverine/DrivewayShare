@@ -50,6 +50,9 @@
           <p class="list-contact"><span>Connect via </span><a href=# ng-click="sendEmail(item.email)">desktop mail</a></p>
           <p class="list-contact"><span>Call </span><a href=# ng-click="callPhone(item.phone)">{{ item.username }}</a></p>
           <p class="list-contact-description" ng-show="item.listing.description">{{ item.listing.description }}</p>
+          <form ng-submit="sendMessage(item.email, message)">
+          <input ng-model="message" placeholder="email the owner" style="width:40%; height: 40%"></input>
+          </form>
         </div>
       </li>
     </ol>
