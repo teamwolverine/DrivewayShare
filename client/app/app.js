@@ -2,7 +2,7 @@ var app = angular.module("Driveway-Share", [
 	"ui.router",
 	"ui.bootstrap",
 	"ui.mask",
-	"equals"
+	"ngRoute"
 ])
 
 .config(function($stateProvider, $urlRouterProvider, $httpProvider){
