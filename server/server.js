@@ -151,32 +151,31 @@ app.post("/api/message", function(req, res){
   }
 })));
 
+
 	new User({ id: id })
 		.fetch()
 		.then(function(user){
 			console.log("+++line 153 server.js ", user.attributes);
-			userEmail = user.attributes.email;
-			userName = user.attributes.name;
-		})
+			
+		var mailOptions = {
+    	from: "drivewaysharemks@gmail.com", // sender address
+    	to: recipientEmail, // list of receivers
+    	replyTo: user.attributes.email,
+    	subject: "You have a parking spot request from " + user.attributes.username, // Subject line
+    	text: messageBody, // plaintext body
+		}
 
-	var mailOptions = {
-    from: "drivewaysharemks@gmail.com", // sender address
-    to: recipientEmail, // list of receivers
-    replyTo: userEmail,
-    subject: "You have a parking spot request from " + userName, // Subject line
-    text: messageBody, // plaintext body
-	}
-
-	// send mail with defined transport object
-	transport.sendMail(mailOptions, function(error, response){
-    if(error){
+		// send mail with defined transport object
+		transport.sendMail(mailOptions, function(error, response){
+   	 if(error){
         console.log(error);
-    }else{
+    	}
+    	else{
         console.log("Message sent: " + response.text);
-    }
+    	}
+		});
 	});
-
-})
+});
 
 
 // route for everything else
