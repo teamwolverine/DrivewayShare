@@ -1,4 +1,4 @@
-app.controller("HomeController", function($scope, Nav, Listings) {
+app.controller("HomeController", function($scope, Nav, Listings, Message, Auth) {
 
 	$scope.data = [];
 	$scope.search = "";
@@ -47,9 +47,25 @@ app.controller("HomeController", function($scope, Nav, Listings) {
   $scope.callPhone = function(phone){
     var phone = 'tel:' + phone;
     window.location.href = phone;
-  }
+  };
+
+  $scope.sendMessage = function(email, msg){
+    console.log("inside sendMessage")
+    if(Auth.isSignedIn){
+      console.log("+++ line 54 home.js ", Auth.getToken())
+      var sendObj = {
+      msg: msg,
+      token: Auth.getToken(),
+      email: email //owner email
+    }
+    Message.sendMessage(sendObj)
+    //msg.val('');
+    }
+  };
 
   $scope.toggleExpand = function(item) {
+    console.log(item)
+    console.log("+++ line 66 home.js ", Auth.getToken())
     item.expand = !item.expand;
   };
 

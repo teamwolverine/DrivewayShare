@@ -11,6 +11,8 @@ var util = require("./util.js");
 var _ = require("lodash");
 var jwt = require("jwt-simple");
 var bcrypt = require("bcrypt-nodejs");
+var nodemailer = require("nodemailer");
+var smtpTransport = require('nodemailer-smtp-transport');
 
 var app = express();
 
@@ -128,6 +130,52 @@ app.post("/api/toggle", function(req, res) {
 		.catch(function (error) {
 			res.status(400).send(error);
 		})
+});
+
+app.post("/api/message", function(req, res){
+	var recipientEmail = req.body.email;
+	var messageBody = req.body.msg;
+	console.log("+++ line 137 server.js ", req.body.token)
+	var token = req.body.token;
+	var id = util.getCurrentUserID(token);
+	var userEmail;
+	var userName;
+
+	var transport = nodemailer.createTransport((smtpTransport({
+  host: 'smtp.gmail.com',
+  secureConnection: false, // use SSL
+  port: 587, // port for secure SMTP
+  auth: {
+    user: "drivewaysharemks@gmail.com",
+    pass: "makersquare"
+  }
+})));
+
+	new User({ id: id })
+		.fetch()
+		.then(function(user){
+			console.log("+++line 153 server.js ", user.attributes);
+			userEmail = user.attributes.email;
+			userName = user.attributes.name;
+		})
+
+	var mailOptions = {
+    from: "drivewaysharemks@gmail.com", // sender address
+    to: recipientEmail, // list of receivers
+    replyTo: userEmail,
+    subject: "You have a parking spot request from " + userName, // Subject line
+    text: messageBody, // plaintext body
+	}
+
+	// send mail with defined transport object
+	transport.sendMail(mailOptions, function(error, response){
+    if(error){
+        console.log(error);
+    }else{
+        console.log("Message sent: " + response.text);
+    }
+	});
+
 })
 
 
