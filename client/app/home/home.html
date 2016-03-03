@@ -1,34 +1,41 @@
 <div id="home-container">
 
-  <div id="form-wrapper" ng-class="listPopulated ? 'smallSearch' : 'largeSearch'">
-    <form class="center-block" id="main-search" ng-submit="getSearch()">
-      <div id="form-align" class="input-group">
-        <input id="main-search-input" type="text" class="form-control input-lg" ng-model="search" required="">
-        <span class="input-group-btn">
-          <button class="btn btn-primary btn-lg" id="main-search-button" type="submit">Search</button>
-        </span>
-      </div>
-    </form>
+  <div id="videoSearch">
+    <video autoplay poster="" id="bgvid" loop ng-show="!listPopulated">
+      <source src="assets/video.mp4" type="video/mp4">
+    </video>
+
+    <div class="form-wrapper" ng-class="listPopulated ? 'smallSearch' : 'largeSearch'">
+      <form class="center-block" id="main-search" ng-submit="getSearch()">
+        <div id="form-align" class="input-group">
+          <input id="main-search-input" type="text" class="form-control input-lg" ng-model="search" required="">
+          <span class="input-group-btn">
+            <button class="btn btn-primary btn-lg" id="main-search-button" type="submit">Search</button>
+          </span>
+        </div>
+      </form>
+
+      <div id="searchFooterOverlay"></div>
+      <div id="centerTextOverlay"><h1 class="welcome">RESERVE YOUR SPOT</h1><h4>Easily find, rent, and list available parking spaces in your city.</h4></div>
+    </div>
+ 
+
   </div>
-<!--   <form id="main-search" ng-submit="getSearch()" ng-class="listPopulated ? 'smallSearch' : 'largeSearch'">
-    <input id="main-search-input" type="text" ng-model="search" required="">
-    <button type="submit">Search</button>
-  </form> -->
 
   <div class="shadow"></div>
 
   <section id="main-list" ng-show="listPopulated">
-    <h1>Listings within <input id="dist-input" type="number" ng-model="distSearchInput" min="1" required> miles</h1>
+    <h1 id="searchHeading">Listings within <input id="dist-input" type="number" ng-model="distSearchInput" min="1" required> miles</h1>
 
     <div id="google-map"></div>
 
     <header class="list-headers">
-      <h4 class="list-address">Address</h4>
-      <h4 class="list-price" ng-click="sortPrice()">Price</h4>
-      <h4 class="list-distance" ng-click="sortDist()">Distance</h4>
+      <h4 class="list-address bold ">Address</h4>
+      <h4 class="list-price bold clickable" ng-click="sortPrice()">Price <img src="assets/dropdown.png"></h4>
+      <h4 class="list-distance bold clickable" ng-click="sortDist()">Distance <img src="assets/dropdown.png"></h4>
     </header>
 
-    <ol class="list-table">
+    <ul class="list-table list-unstyled">
       <li class="list-item" ng-repeat="item in data">
         <div>
           <p class="list-address">
@@ -37,9 +44,9 @@
             {{ item.listing.state }}
             {{ item.listing.zipcode }}
           </p>
-          <p class="list-price">${{ item.listing.price }}</p>
+          <p class="list-price">${{ item.listing.price }} / day</p>
           <p class="list-distance">{{ item.dist }} miles</p>
-          <p class="dropdown"><img ng-click="toggleExpand(item)" src="../assets/dropdown.png"></p>
+          <i ng-click="toggleExpand(item)" class="pull-right glyphicon chevron" ng-class="{'glyphicon-chevron-down': item.expand, 'glyphicon-chevron-right': !item.expand}"></i>
         </div>
         <div ng-show="item.expand">
           <p class="list-contact"><span>Owner: </span> <strong>{{ item.username }}</strong></p>
@@ -55,7 +62,7 @@
           </form>
         </div>
       </li>
-    </ol>
+    </ul>
   </section>
 
 </div>
