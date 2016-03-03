@@ -110,6 +110,8 @@ app.factory("Listings", function($http, $window){
 })
 .factory("Auth", function($http, $location, $window) {
 
+   var token = '';
+
   var signin = function(user) {
     return $http ({
       method: "POST",
@@ -117,6 +119,7 @@ app.factory("Listings", function($http, $window){
       data: user
     })
     .then(function(res) {
+      token = res.data.token;
       return res.data.token;
     });
   };
