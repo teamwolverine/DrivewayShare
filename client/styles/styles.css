@@ -9,8 +9,9 @@ body {
   background-color: #EDEFED;
 }
 
-a {
+a:focus {
   text-decoration: none;
+  color: #fff;
 }
 
 #nav-bar {
@@ -409,6 +410,11 @@ textarea {
   padding: 6px;
   width: 100px;
   color: white;
+  font-size: 1.8em;
+}
+
+.md-button:hover {
+  background: #527af2;
 }
 
 .md-button[disabled] {
@@ -556,4 +562,9 @@ video {
 }
 .holder:hover {
    box-shadow: 2px 2px 1px #222;
+}
+
+.input-text {
+  font-size: 1.8em;
+  color: #666;
 }
