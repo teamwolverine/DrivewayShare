@@ -7,10 +7,12 @@ app.controller("SignupController", function($scope, Auth, Nav, $location, $windo
 
   Nav.setPage(4);
 
+  $scope.showText = false;
   $scope.passwordLength = MAX_PASSWORD_LENGTH;
   $scope.emailLength = MAX_EMAIL_LENGTH;
   $scope.usernameLength = MAX_USERNAME_LENGTH;
-  $scope.firstAndLastLength = MAX_FIRST_AND_LAST_NAME_LENGTH;
+  $scope.firstNameLength = MAX_FIRST_AND_LAST_NAME_LENGTH;
+  $scope.lastNameLength = MAX_FIRST_AND_LAST_NAME_LENGTH;
 
   $scope.$watch('user.password', function(newValue, oldValue){
     if(newValue){
@@ -30,8 +32,39 @@ app.controller("SignupController", function($scope, Auth, Nav, $location, $windo
     }
   });
 
+  $scope.$watch('user.password', function(newValue, oldValue){
+    if(newValue){
+      if(newlue.length > MAX_PASSWORD_LENGTH){
+        $scope.user.password = oldValue;
+      }
+      $scope.passwordLength = MAX_EMAIL_LENGTH - newValue.length;
+    }
+  });
+
+  $scope.$watch('user.first_name', function(newValue, oldValue){
+    if(newValue){
+      if(newValue.length > MAX_FIRST_AND_LAST_NAME_LENGTH){
+        $scope.user.first_name = oldValue;
+      }
+      $scope.firstNameLength = MAX_FIRST_AND_LAST_NAME_LENGTH - newValue.length;
+    }
+  });
+
+  $scope.$watch('user.last_name', function(newValue, oldValue){
+    if(newValue){
+      if(newValue.length > MAX_FIRST_AND_LAST_NAME_LENGTH){
+        $scope.user.last_name = oldValue;
+      }
+      $scope.lastNameLength = MAX_FIRST_AND_LAST_NAME_LENGTH - newValue.length;
+    }
+  });
+
   $scope.updateBody = function(event){
     return false;
+  };
+
+  $scope.toggle = function() {
+    $scope.showText = !$scope.showText;
   };
 
 	$scope.signup = function() {
@@ -71,10 +104,10 @@ app.controller("SignupController", function($scope, Auth, Nav, $location, $windo
 	    console.error(error);
 	  });
 	};
+  
   $scope.validatePhoneNumber = function(){
-    if($scope.user.phone_number.length >= 1){
 		var number = $scope.user.phone_number.replace(/\D/g, '');
-			if(number.length===10){
+		if(number.length===10){
 				return false;
 			}
 		return true;

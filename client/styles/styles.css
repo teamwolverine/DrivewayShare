@@ -281,7 +281,7 @@ textarea {
 .md-title {
   line-height: 64px;
   width: 100%;
-  background: #FF7043;
+  background: #4169E1;
   color: white;
   border-radius: 3px 3px 0 0;
   box-sizing: border-box;
@@ -301,7 +301,7 @@ textarea {
   display: block;
   border: none;
   padding: 10px 0;
-  border-bottom: solid 1px #FF7043;
+  border-bottom: solid 1px #4169E1;
   -webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
   transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
   background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 96%, #FF7043 4%);
@@ -328,7 +328,17 @@ textarea {
 
 .md-button {
   border: none;
-  background: #FF3D00;
+  background: #4169E1;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 6px;
+  width: 100px;
+  color: white;
+}
+
+.md-button[disabled] {
+  border: none;
+  background: black;
   cursor: pointer;
   border-radius: 3px;
   padding: 6px;
