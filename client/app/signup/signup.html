@@ -11,20 +11,15 @@
   <div id="signup">
     <form class="md-form" name="signupForm" ng-submit="signup();">
       <h4 class="md-title">Create Account</h4>
-      <input class="md-input" placeholder="First Name" type="text" ng-model="user.first_name" ng-keypress="updateBody();" required>
-      <input class="md-input" placeholder="Last Name" type="text" ng-model="user.last_name" ng-keypress="updateBody();"required>
-      <input class="md-input" placeholder="Email" type="text" ng-model="user.email" ng-keypress="updateBody();" required>
-      <input class="md-input" placeholder="Phone" type="text" ng-model="user.phone_number" required>
-      <input class="md-input" placeholder="Username" type="text" ng-model="user.username" ng-keypress="updateBody();" required>
-      <input class="md-input" id="pw1" name = "pw1" placeholder="Password" type="password" ng-model="user.password" ng-keypress="updateBody();" required>
-      <input class="md-input" id="pw2" name = "pw2" pw-check="pw1" placeholder="Confirm Password" type="password" ng-model="user.confirm_password" ng-keypress="updateBody();" required>
-      <div class="msg-block" ng-show="myForm.$error">
-        <span class="msg-error" ng-show="myForm.pw2.$error.pwmatch">
-          Passwords don't match.
-        </span>
-      </div>
+      <input class="md-input" placeholder="First Name" type="text" ng-model="user.first_name" maxLength = "20" required>
+      <input class="md-input" placeholder="Last Name" type="text" ng-model="user.last_name" maxLength = "20" required>
+      <input class="md-input" placeholder="Email" type="text" ng-model="user.email" maxLength = "30" required>
+      <input class="md-input" placeholder="Phone" type="text" ng-model="user.phone_number" ui-mask="(999) 999-9999" ui-mask-placeholder-char="_" ui-mask-placeholder required>
+      <input class="md-input" placeholder="Username" type="text" ng-model="user.username" maxLength = "20" required>
+      <input class="md-input" placeholder="Password" type="password" ng-model="user.password" maxLength = "20" required>
+      <input class="md-input" placeholder="Confirm Password" type="password" ng-model="user.confirm_password" maxLength = "20" required>
       <br>
-      <button type="submit" class="md-button" ng-disabled="validatePhoneNumber()">Submit</button>
+      <button type="submit" class="md-button" ng-disabled="validatePassword();">Submit</button>
     </form>
   </div>
 </div>
