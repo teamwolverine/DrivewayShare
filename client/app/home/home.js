@@ -49,17 +49,19 @@ app.controller("HomeController", function($scope, Nav, Listings, Message, Auth) 
     window.location.href = phone;
   };
 
-  $scope.sendMessage = function(email, msg){
+  $scope.sendMessage = function(email, username, msg){
+    console.log("+++ line 53 home.js ", username)
     console.log("inside sendMessage")
     if(Auth.isSignedIn){
       console.log("+++ line 54 home.js ", Auth.getToken())
       var sendObj = {
       msg: msg,
+      username: username,
       token: Auth.getToken(),
       email: email //owner email
     }
     Message.sendMessage(sendObj)
-    //msg.val('');
+    angular.element(document).find("input").val("");
     }
   };
 
