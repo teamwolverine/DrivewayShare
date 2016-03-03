@@ -1,8 +1,22 @@
+var MAX_PASSWORD_LENGTH = 20;
+var MAX_EMAIL_LENGTH = 30;
+var MAX_USERNAME_LENGTH = 20;
+var MAX_FIRST_AND_LAST_NAME_LENGTH = 25;
+
 app.controller("SignupController", function($scope, Auth, Nav, $location, $window){
 
   Nav.setPage(4);
 
 	$scope.signup = function() {
+    var password = $scope.user.password;
+    var secondEntryPassword = $scope.user.confirm_password;
+    if(password !== secondEntryPassword){
+      swal({
+        title: "Passwords do not match! Please double check.",
+        type: "error",
+        confirmationButtonText: "OK"
+      })
+    } else {
 		Auth.signup($scope.user)
 		.then(function (token){
 			$window.localStorage.setItem("authentication", token);
@@ -10,6 +24,7 @@ app.controller("SignupController", function($scope, Auth, Nav, $location, $windo
       Nav.setPage(3);
 		})
 		.catch(function(error) {
+      console.log(error);
 			swal({
 				title: 'User already exists!',
 				text: "This username already exists. Please choose another one.",
@@ -17,6 +32,7 @@ app.controller("SignupController", function($scope, Auth, Nav, $location, $windo
 				confirmButtonText: "OK"
 			});
 		})
+    }
 	};
 
 	$scope.signin = function () {
@@ -27,7 +43,7 @@ app.controller("SignupController", function($scope, Auth, Nav, $location, $windo
 					title: 'User not found!',
 					text: 'Double check your username/password or create a new account!',
 					type: 'error',
-					confirmButtonText: 'AWESOME'
+					confirmButtonText: 'OK'
 				});
 	    } else {
 		  	$window.localStorage.setItem("authentication", token);
@@ -38,12 +54,5 @@ app.controller("SignupController", function($scope, Auth, Nav, $location, $windo
 	  .catch(function (error) {
 	    console.error(error);
 	  });
-	};
-  $scope.validatePhoneNumber = function(){
-		var number = $scope.user.phone_number.replace(/\D/g, '');
-			if(number.length===10){
-				return false;
-			}
-		return true;
 	};
 });
