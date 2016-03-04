@@ -103,11 +103,15 @@ app.controller("HomeController", function($scope, Nav, Listings, Message, Auth) 
     var infoWindowContent = [];
 
     for(var i = 0; i < $scope.data.length; i++) {
+      var listing = $scope.data[i].listing;
       var temp = [];
       temp.push(markerIndex.toString(), $scope.data[i].listing.latitude, $scope.data[i].listing.longitude);
       markers.push(temp);
       markerIndex++;
-      infoWindowContent.push("$" + $scope.data[i].listing.price + " / day");
+
+      var content = "<span class='map-tooltip'>" + listing.street_address + ", " + listing.city_name + "<br>$" + listing.price + " / day<br>" + listing.description + "</span>";
+      infoWindowContent.push(content);
+
     }
 
     function initializeMap() {

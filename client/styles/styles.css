@@ -165,6 +165,10 @@ a:focus {
   margin: 15px 0;
 }
 
+.map-tooltip {
+  font-size: 1.5em;
+}
+
 #main-list {
   width: 75%;
   margin: 0 auto;
