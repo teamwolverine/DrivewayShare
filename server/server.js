@@ -163,7 +163,7 @@ app.post("/api/message", function(req, res){
     	to: recipientEmail, // list of receivers
     	replyTo: user.attributes.email,
     	subject: "Hi, " + recipientUsername + " You have a parking spot request from " + user.attributes.username, // Subject line
-    	text: messageBody + "\r\n\n\nPowered by DrivewayShare\ndrivewayshare.herokuapp.com" // plaintext body
+    	text: messageBody + "\r\n\n\nPowered by DrivewayShare\ndrivewayshareapp.herokuapp.com" // plaintext body
 		}
 
 		// send mail with defined transport object

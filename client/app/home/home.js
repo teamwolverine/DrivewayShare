@@ -55,10 +55,11 @@ app.controller("HomeController", function($scope, Nav, Listings, Message, Auth) 
     Message.sendMessage(sendObj)
     angular.element(document).find("textarea").val("");
     swal({
-        title: 'Success!',
-        text: "Your message has been sent",
-        type: "success",
-        timer: 2000
+      html: '<p id="sweetAlert">Message sent!</p>',
+      type: 'success',
+      timer: 1500,
+      width: 600,
+      showConfirmButton: false
       });
     }
   };
