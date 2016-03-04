@@ -1,13 +1,16 @@
 var path = require("path");
+if(!process.env.HOST){
+  var config = require('./config.js');
+}
 
 var knex = require("knex")({
   client: "mysql",
   connection: {
-    host      : "mysqlcluster7.registeredsite.com",
-    user      : "drivewayadmin",
-    password  : "!Qaz2wsx3edc",
-    database  : "driveway",
-    charset   : "utf8"
+    host      : process.env.HOST || config.host,
+    user      : process.env.USER || config.user,
+    password  : process.env.PASSWORD || config.password,
+    database  : process.env.DATABASE || config.database,
+    charset   : process.env.CHARSET || config.charset
   }
 });
 
