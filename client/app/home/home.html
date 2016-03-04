@@ -49,9 +49,9 @@
           <i ng-click="toggleExpand(item)" class="pull-right glyphicon chevron" ng-class="{'glyphicon-chevron-down': item.expand, 'glyphicon-chevron-right': !item.expand}"></i>
         </div>
           <div ng-show="item.expand">
-           <div><h2>Owner: {{ item.username }}</h2></div>
-           <div ng-show="item.listing.description"> <h3>Description</h3><p>{{ item.listing.description }}</p></div>
-           <button class="msgButton" ng-click="showDetails=true" ng-show="!showDetails">Message the Owner</button>
+           <div><h4>Owner: {{ item.username }}</h4></div>
+           <div ng-show="item.listing.description"> <h4>Description:</h4><p>{{ item.listing.description }}</p></div>
+           <button class="msgButton center-block" ng-click="showDetails=true" ng-show="!showDetails">Message the Owner</button>
            <div class="emailField" ng-class="{ 'hidden': ! showDetails }">
            <form class="msgForm">
              <textarea class="msgText" rows="7" cols="100" ng-model="message" placeholder="ie. Hi! I want to give you $$$ to park here!"></textarea><button class="sendButton" type="submit" value="submit" ng-click="sendMessage(item.email, item.username, message)">Send</button>
