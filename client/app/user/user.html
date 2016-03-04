@@ -55,11 +55,7 @@
             </p>
             <p class="list-delete"><img src="../assets/trash-can.png" ng-click="removeListing(item)"></p>
             <p class="list-dropdown" ng-show="item.description">
- <!--            <i ng-click="toggleExpand(item)" class="pull-right glyphicon chevron" ng-class="{'glyphicon-chevron-down': item.expand, 'glyphicon-chevron-right': !item.expand}"></i> -->     
-            <i id="list-chevron" ng-click="toggleExpand(item)" class="glyphicon chevron" ng-class="{'glyphicon-chevron-down': item.expand, 'glyphicon-chevron-right': !item.expand}"></i>  
-
-            <!-- <img ng-click="toggleExpand(item)" src="../assets/dropdown.png"> -->
-
+              <i id="list-chevron" ng-click="toggleExpand(item)" class="glyphicon chevron" ng-class="{'glyphicon-chevron-down': item.expand, 'glyphicon-chevron-right': !item.expand}"></i>
             </p>
               <div ng-show="item.expand">
                 <p class="list-user-description">{{ item.description }}</p>
