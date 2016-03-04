@@ -610,3 +610,23 @@ video {
   font-size: 1.8em;
   color: #666;
 }
+
+.pac-container{
+  font-size: 1.3em;
+  font-style: bold;
+}
+
+.pac-item-query{
+  font-size: 1.3em;
+  font-style: bold;
+}
+
+.pac-item span {
+  font-size: 1.3em;
+  font-style: bold;
+}
+
+.pac-item-matched {
+  font-size: 1.3em;
+  font-style: bold;
+}
