@@ -3,7 +3,7 @@
     <header>
       <nav>
         <a class="user-nav-item" ng-class="{'active-tab': isSet(1)}" ng-click="setTab(1)">Create Listing</a>
-        <a class="user-nav-item" ng-class="{'active-tab': isSet(2)}" ng-click="setTab(2)">Manage Listings</a>
+        <!-- <a class="user-nav-item" ng-class="{'active-tab': isSet(2)}" ng-click="setTab(2)">Manage Listings</a> -->
       </nav>
     </header>
   </div>
@@ -11,21 +11,29 @@
   <div class="shadow"></div>
 
   <div class="tab-content" ng-show="isSet(1)">
-    <h4 class="tab-content-header">Rent out your parking spot:</h4>
-    <form class="post-listing-form" name="createListingForm">
-      <label class="form-label">Address:<input id="post-address-input" type="text" ng-model="newListing.formatted_address" required></label>
-      <br/>
-      <div id="post-description">
-        <label class="form-label">Description:<textarea id="post-description-input" placeholder="e.g. days/times available, driveway/garage spot, covered/uncovered, etc." maxlength="250" type="text" ng-model="newListing.descrip" ng-trim="false" required></textarea></label>
-        <span class="chars-left">chars: {{250 - newListing.descrip.length}}</span>
+    <h4 class="tab-content-header">List your parking spot:</h4>
+
+    <form>
+      <div class="form-group">
+        <label for="post-address-input">Address:</label>
+        <input class="form-control" id="post-address-input" placeholder="e.g. 123 Main St." ng-model="newListing.formatted_address">
       </div>
-      <label class="form-label">Price:<input id="post-price-input" placeholder="$" type="number" ng-model="newListing.price" required></label>
+      <div class="form-group">
+        <label for="post-description-input">Description:</label>
+        <textarea class="form-control" id="post-address-input" placeholder="e.g. days/times available, driveway/garage spot, covered/uncovered, etc" ng-model="newListing.descrip" ng-trim="false" required></textarea>
+        <span class="chars-left">Chars: {{250 - newListing.descrip.length}}</span>
+      </div>
+      <div class="form-group">
+        <label for="post-price-input">Price / Day:</label>
+        <input class="form-control" id="post-price-input" placeholder="7" ng-model="newListing.price" required>
+      </div>
     </form>
-    <button id="post-listing-form-button" ng-click="createListing()">Submit</button>
+
+    <button class="btn btn-primary" ng-click="createListing()">Submit</button>
   </div>
 
-  <div class="tab-content" ng-show="isSet(2)">
-    <h4 class="tab-content-header">Manage Listings</h3>
+  <div class="tab-content">
+    <h4 class="tab-content-header">Current Listings</h3>
     <section id="user-list" ng-show="data.length>0">
       <header id="user-list-headers">
         <h5 class="list-address">Address</h5>
