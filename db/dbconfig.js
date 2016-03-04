@@ -1,5 +1,5 @@
 var path = require("path");
-if(!process.env.HOST){
+if(!process.env.DOMAINNAME){
   var config = require('./config.js');
 }
 
