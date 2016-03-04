@@ -11,13 +11,13 @@
   <div id="signup">
     <form class="md-form" name="signupForm" ng-submit="signup();">
       <h4 class="md-title">Create Account</h4>
-      <input class="md-input" placeholder="First Name" type="text" ng-model="user.first_name" maxLength = "20" required>
-      <input class="md-input" placeholder="Last Name" type="text" ng-model="user.last_name" maxLength = "20" required>
-      <input class="md-input" name = "userEmail" placeholder="Email" type="text" ng-model="user.email" maxLength = "30" required>
-      <input class="md-input" placeholder="Phone" type="text" ng-model="user.phone_number" ui-mask="(999) 999-9999" ui-mask-placeholder-char="_" ui-mask-placeholder required>
-      <input class="md-input" placeholder="Username" type="text" ng-model="user.username" maxLength = "20" required>
-      <input class="md-input" placeholder="Password" type="password" ng-model="user.password" maxLength = "20" required>
-      <input class="md-input" placeholder="Confirm Password" type="password" ng-model="user.confirm_password" maxLength = "20" required>
+      <input class="md-input input-text" placeholder="First Name" type="text" ng-model="user.first_name" maxLength = "20" required>
+      <input class="md-input input-text" placeholder="Last Name" type="text" ng-model="user.last_name" maxLength = "20" required>
+      <input class="md-input input-text" name = "userEmail" placeholder="Email" type="text" ng-model="user.email" maxLength = "30" required>
+      <input class="md-input input-text" placeholder="Phone" type="text" ng-model="user.phone_number" ui-mask="(999) 999-9999" ui-mask-placeholder-char="_" ui-mask-placeholder required>
+      <input class="md-input input-text" placeholder="Username" type="text" ng-model="user.username" maxLength = "20" required>
+      <input class="md-input input-text" placeholder="Password" type="password" ng-model="user.password" maxLength = "20" required>
+      <input class="md-input input-text" placeholder="Confirm Password" type="password" ng-model="user.confirm_password" maxLength = "20" required>
       <br>
       <button type="submit" class="md-button text-input">Submit</button>
     </form>
