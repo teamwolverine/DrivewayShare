@@ -14,7 +14,7 @@ app.controller("SignupController", function($scope, Auth, Nav, $location, $windo
 
     var validEmail = function(email){
       var flag = false;
-      for(var i = 0; i < useremail.length; i++){
+      for(var i = 0; i < $scope.user.email.length; i++){
         if($scope.user.email[i]==="@"){
           flag = true;
         }
@@ -23,8 +23,6 @@ app.controller("SignupController", function($scope, Auth, Nav, $location, $windo
     };
 
     var emailFlag = validEmail(email);
-
-    factory.verifyPasswordAndEmail($scope.user.password, )
 
     if (password !== secondEntryPassword || emailFlag ===false){
       if(password !==secondEntryPassword){
