@@ -1,68 +1,61 @@
 <div id="home-container">
 
-  <div id="videoSearch">
-    <video autoplay poster="" id="bgvid" loop ng-show="!listPopulated">
-      <source src="assets/video.mp4" type="video/mp4">
-    </video>
+ <div id="videoSearch">
+   <video autoplay poster="" id="bgvid" loop ng-show="!listPopulated">
+     <source src="assets/video.mp4" type="video/mp4">
+   </video>
 
-    <div class="form-wrapper" ng-class="listPopulated ? 'smallSearch' : 'largeSearch'">
-      <form class="center-block" id="main-search" ng-submit="getSearch()">
-        <div id="form-align" class="input-group">
-          <input id="main-search-input" type="text" class="form-control input-lg" ng-model="search" required="">
-          <span class="input-group-btn">
-            <button class="btn btn-primary btn-lg" id="main-search-button" type="submit">Search</button>
-          </span>
-        </div>
-      </form>
+   <div class="form-wrapper" ng-class="listPopulated ? 'smallSearch' : 'largeSearch'">
+     <form class="center-block" id="main-search" ng-submit="getSearch()">
+       <div id="form-align" class="input-group">
+         <input id="main-search-input" type="text" class="form-control input-lg" ng-model="search" required="">
+         <span class="input-group-btn">
+           <button class="btn btn-primary btn-lg" id="main-search-button" type="submit">Search</button>
+         </span>
+       </div>
+     </form>
 
-      <div id="searchFooterOverlay"></div>
-      <div id="centerTextOverlay"><h1 class="welcome">RESERVE YOUR SPOT</h1><h4>Easily find, rent, and list available parking spaces in your city.</h4></div>
-    </div>
- 
+     <div id="searchFooterOverlay"></div>
+     <div id="centerTextOverlay"><h1 class="welcome">RESERVE YOUR SPOT</h1><h4>Easily find, rent, and list available parking spaces in your city.</h4></div>
+   </div>
 
-  </div>
+ </div>
 
-  <div class="shadow"></div>
+ <div class="shadow"></div>
 
-  <section id="main-list" ng-show="listPopulated">
-    <h1 id="searchHeading">Listings within <input id="dist-input" type="number" ng-model="distSearchInput" min="1" required> miles</h1>
+ <section id="main-list" ng-show="listPopulated">
+   <h1 id="searchHeading">Listings within <input id="dist-input" type="number" ng-model="distSearchInput" min="1" required> miles</h1>
 
-    <div id="google-map"></div>
+   <div id="google-map"></div>
 
-    <header class="list-headers">
-      <h4 class="list-address bold ">Address</h4>
-      <h4 class="list-price bold clickable" ng-click="sortPrice()">Price <img src="assets/dropdown.png"></h4>
-      <h4 class="list-distance bold clickable" ng-click="sortDist()">Distance <img src="assets/dropdown.png"></h4>
-    </header>
+   <header class="list-headers">
+     <h4 class="list-address bold ">Address</h4>
+     <h4 class="list-price bold clickable" ng-click="sortPrice()">Price <img src="assets/dropdown.png"></h4>
+     <h4 class="list-distance bold clickable" ng-click="sortDist()">Distance <img src="assets/dropdown.png"></h4>
+   </header>
 
-    <ul class="list-table list-unstyled">
-      <li class="list-item" ng-repeat="item in data">
-        <div>
-          <p class="list-address">
-            {{ item.listing.street_address }}
-            {{ item.listing.city_name }},
-            {{ item.listing.state }}
-            {{ item.listing.zipcode }}
-          </p>
-          <p class="list-price">${{ item.listing.price }} / day</p>
-          <p class="list-distance">{{ item.dist }} miles</p>
-          <i ng-click="toggleExpand(item)" class="pull-right glyphicon chevron" ng-class="{'glyphicon-chevron-down': item.expand, 'glyphicon-chevron-right': !item.expand}"></i>
-        </div>
-        <div ng-show="item.expand">
-          <p class="list-contact"><span>Owner: </span> <strong>{{ item.username }}</strong></p>
-          <p class="list-contact"><span>Connect via </span><a target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to={{ item.email }}&amp;su=Parking%20spot%20request!&amp;body=Powered%20by%20DrivewayShare" class="gmail">gmail</a></p>
-          <p class="list-contact"><span>Connect via </span><a target="_blank" href="http://compose.mail.yahoo.com/?to={{ item.email }}&amp;subj=Parking%20spot%20request!&amp;body=Powered%20by%20DrivewayShare" class="yahoo">yahoo mail</a></p>
-          <p class="list-contact"><span>Connect via </span><a target="_blank" href="https://mail.live.com/default.aspx?rru=compose&amp;to={{ item.email }}&amp;subject=Parking%20spot%20request!&amp;body=Powered%20by%20DrivewayShare" class="msmail">hotmail, outlook, live mail</a></p>
-          <p class="list-contact"><span>Connect via </span><a target="_blank" href="http://mail.aol.com/mail/compose-message.aspx?to={{ item.email }}&amp;subject=Parking%20spot%20request!&amp;body=Powered%20by%20DrivewayShare" class="aol">aol mail</a></p>
-          <p class="list-contact"><span>Connect via </span><a href=# ng-click="sendEmail(item.email)">desktop mail</a></p>
-          <p class="list-contact"><span>Call </span><a href=# ng-click="callPhone(item.phone)">{{ item.username }}</a></p>
-          <p class="list-contact-description" ng-show="item.listing.description">{{ item.listing.description }}</p>
-          <form ng-submit="sendMessage(item.email, item.username, message)">
-          <input ng-model="message" placeholder="email the owner" style="width:40%; height: 40%"></input>
-          </form>
-        </div>
-      </li>
-    </ul>
-  </section>
+   <ul class="list-table list-unstyled">
+     <li class="list-item" ng-repeat="item in data">
+       <div>
+         <p class="list-address">
+           {{ item.listing.street_address }}
+           {{ item.listing.city_name }},
+           {{ item.listing.state }}
+           {{ item.listing.zipcode }}
+         </p>
+         <p class="list-price">${{ item.listing.price }} / day</p>
+         <p class="list-distance">{{ item.dist }} miles</p>
+         <i ng-click="toggleExpand(item)" class="pull-right glyphicon chevron" ng-class="{'glyphicon-chevron-down': item.expand, 'glyphicon-chevron-right': !item.expand}"></i>
+       </div>
+       <div ng-show="item.expand">
+         <div><h2>Owner: {{ item.username }} </h2></div>
+         <div ng-show="item.listing.description"> <h3>Description</h3> <p>{{ item.listing.description }}</p></div>
+         <form>
+         <textarea rows="7" cols="185" ng-model="message" placeholder="email the owner"></textarea><button type="submit" value="submit" ng-click="sendMessage(item.email, item.username, message)">Send</button>
+         </form>
+       </div>
+     </li>
+   </ul>
+ </section>
 
 </div>

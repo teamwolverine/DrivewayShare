@@ -157,8 +157,7 @@ app.post("/api/message", function(req, res){
 	new User({ id: id })
 		.fetch()
 		.then(function(user){
-			//console.log("+++line 153 server.js ", user.attributes);
-			
+			console.log("+++line 153 server.js ", user.attributes);
 		var mailOptions = {
     	from: "drivewaysharemks@gmail.com", // sender address
     	to: recipientEmail, // list of receivers
