@@ -165,7 +165,7 @@ app.factory("Listings", function($http, $window){
 
   var signout = function() {
     $window.localStorage.removeItem("authentication");
-    $location.path("/home");
+    $location.path("/signup");
   }
 
   return {
