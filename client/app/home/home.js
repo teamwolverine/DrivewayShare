@@ -58,7 +58,7 @@ app.controller("HomeController", function($scope, Nav, Listings, Message, Auth) 
         title: 'Success!',
         text: "Your message has been sent",
         type: "success",
-        confirmButtonText: "OK"
+        timer: 2000
       });
     }
   };
