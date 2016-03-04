@@ -467,7 +467,7 @@ textarea {
 
 /*Video*/
 
-video { 
+video {
   position: fixed;
   top: 0%;
   /*left: 50%;*/
@@ -484,7 +484,7 @@ video {
   transition: 1s opacity;
   background-color: #111;
 }
-.stopfade { 
+.stopfade {
    opacity: .5;
 }
 
