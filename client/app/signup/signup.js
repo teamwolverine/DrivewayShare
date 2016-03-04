@@ -10,13 +10,35 @@ app.controller("SignupController", function($scope, Auth, Nav, $location, $windo
 	$scope.signup = function() {
     var password = $scope.user.password;
     var secondEntryPassword = $scope.user.confirm_password;
-    if(password !== secondEntryPassword){
+    var email = $scope.user.email;
+
+    var validEmail = function(email){
+      var flag = false;
+      for(var i = 0; i < $scope.user.email.length; i++){
+        if($scope.user.email[i]==="@"){
+          flag = true;
+        }
+      }
+      return flag;
+    };
+
+    var emailFlag = validEmail(email);
+
+    if (password !== secondEntryPassword || emailFlag ===false){
+      if(password !==secondEntryPassword){
       swal({
         title: "Passwords do not match! Please double check.",
         type: "error",
         confirmationButtonText: "OK"
-      })
+      });
     } else {
+      swal({
+        title: "Please enter a valid email.",
+        type: "error",
+        confirmationButtonText: "OK"
+      });
+    }
+  }  else {
 		Auth.signup($scope.user)
 		.then(function (token){
 			$window.localStorage.setItem("authentication", token);
@@ -31,9 +53,9 @@ app.controller("SignupController", function($scope, Auth, Nav, $location, $windo
 				type: "error",
 				confirmButtonText: "OK"
 			});
-		})
-    }
-	};
+		});
+	}
+};
 
 	$scope.signin = function () {
 	  Auth.signin($scope.user)
