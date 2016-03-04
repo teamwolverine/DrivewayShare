@@ -278,13 +278,17 @@ a:focus {
   text-align: center;
 }
 
-.list-availability, .list-delete {
-  width: 11%;
+.list-availability, .list-delete, .list-dropdown {
+  width: 9%;
   text-align: center;
 }
 
 .list-delete img {
   cursor: pointer;
+}
+
+#list-chevron {
+  font-size: 1em;
 }
 
 .list-contact {
