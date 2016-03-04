@@ -217,10 +217,6 @@ a:focus {
   text-align: center;
 }
 
-.list-table {
-
-}
-
 .chevron {
   font-size: 2em;
   cursor: pointer;
@@ -323,7 +319,7 @@ a:focus {
 }
 
 .tab-content {
-  width: 55%;
+  width: 80%;
   min-width: 600px;
   margin: 15px auto;
   background-color: #f8f8f8;

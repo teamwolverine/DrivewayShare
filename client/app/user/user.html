@@ -3,7 +3,7 @@
     <header>
       <nav>
         <a class="user-nav-item" ng-class="{'active-tab': isSet(1)}" ng-click="setTab(1)">Create Listing</a>
-        <a class="user-nav-item" ng-class="{'active-tab': isSet(2)}" ng-click="setTab(2)">Manage Listings</a>
+        <!-- <a class="user-nav-item" ng-class="{'active-tab': isSet(2)}" ng-click="setTab(2)">Manage Listings</a> -->
       </nav>
     </header>
   </div>
@@ -32,8 +32,8 @@
     <button class="btn btn-primary" ng-click="createListing()">Submit</button>
   </div>
 
-  <div class="tab-content" ng-show="isSet(2)">
-    <h4 class="tab-content-header">Manage Listings</h3>
+  <div class="tab-content">
+    <h4 class="tab-content-header">Current Listings</h3>
     <section id="user-list" ng-show="data.length>0">
       <header id="user-list-headers">
         <h5 class="list-address">Address</h5>
