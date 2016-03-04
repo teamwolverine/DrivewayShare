@@ -42,12 +42,12 @@ app.controller("HomeController", function($scope, Nav, Listings, Message, Auth) 
   };
 
   $scope.sendMessage = function(email, username, msg){
-    console.log("+++ line 53 home.js ", username)
     console.log("inside sendMessage")
     if(Auth.isSignedIn){
-      console.log("+++ line 54 home.js ", Auth.getToken())
+      //console.log("+++ line 54 home.js ", Auth.getToken())
       var sendObj = {
       msg: msg,
+      address: listing,
       username: username,
       token: Auth.getToken(),
       email: email //owner email
