@@ -1,64 +1,125 @@
 <div id="home-container">
+  <div id="videoSearch">
+    <video autoplay poster="" id="bgvid" loop ng-show="!listPopulated">
+      <source src="assets/video.mp4" type="video/mp4">
+    </video>
 
- <div id="videoSearch">
-   <video autoplay poster="" id="bgvid" loop ng-show="!listPopulated">
-     <source src="assets/video.mp4" type="video/mp4">
-   </video>
-
-   <div class="form-wrapper" ng-class="listPopulated ? 'smallSearch' : 'largeSearch'">
-     <form class="center-block" id="main-search" ng-submit="getSearch()">
-       <div id="form-align" class="input-group">
-         <input id="main-search-input" type="text" class="form-control input-lg" ng-model="search" required="">
-         <span class="input-group-btn">
-           <button class="btn btn-primary btn-lg" id="main-search-button" type="submit">Search</button>
-         </span>
-       </div>
-     </form>
-
-     <div id="searchFooterOverlay"></div>
-     <div id="centerTextOverlay"><h1 class="welcome">RESERVE YOUR SPOT</h1><h4>Easily find, rent, and list available parking spaces in your city.</h4></div>
-   </div>
-
- </div>
-
- <div class="shadow"></div>
-
- <section id="main-list" ng-show="listPopulated">
-   <h1 id="searchHeading">Listings within <input id="dist-input" type="number" ng-model="distSearchInput" min="1" required> miles</h1>
-
-   <div id="google-map"></div>
-
-   <header class="list-headers">
-     <h4 class="list-address bold ">Address</h4>
-     <h4 class="list-price bold clickable" ng-click="sortPrice()">Price <img src="assets/dropdown.png"></h4>
-     <h4 class="list-distance bold clickable" ng-click="sortDist()">Distance <img src="assets/dropdown.png"></h4>
-   </header>
-
-   <ul class="list-table list-unstyled">
-     <li class="list-item" ng-repeat="item in data">
-       <div>
-         <p class="list-address">
-           {{ item.listing.street_address }}
-           {{ item.listing.city_name }},
-           {{ item.listing.state }}
-           {{ item.listing.zipcode }}
-         </p>
-         <p class="list-price">${{ item.listing.price }} / day</p>
-         <p class="list-distance">{{ item.dist }} miles</p>
-         <i ng-click="toggleExpand(item)" class="pull-right glyphicon chevron" ng-class="{'glyphicon-chevron-down': item.expand, 'glyphicon-chevron-right': !item.expand}"></i>
-       </div>
-       <div ng-show="item.expand">
-         <div><h2>Owner: {{ item.username }} </h2></div>
-         <div ng-show="item.listing.description"> <h3>Description</h3> <p>{{ item.listing.description }}</p></div>
-         <button class="msgButton" ng-click="showDetails=true" ng-show="!showDetails">Message the Owner</button>
-         <div class="emailField" ng-class="{ 'hidden': ! showDetails }">
-          <form class="msgForm">
-           <textarea class="msgText" rows="7" cols="100" ng-model="message" placeholder="ie. Hi! I want to give you $$$ to park here!"></textarea><button class="sendButton" type="submit" value="submit" ng-click="sendMessage(item.email, item.username, message)">Send</button>
-          </form>  
+    <div class="form-wrapper" ng-class="listPopulated ? 'smallSearch' : 'largeSearch'">
+      <form class="center-block" id="main-search" ng-submit="getSearch()">
+        <div id="form-align" class="input-group">
+          <input id="main-search-input" type="text" class="form-control input-lg" ng-model="search" required="">
+          <span class="input-group-btn">
+            <button class="btn btn-primary btn-lg" id="main-search-button" type="submit">Search</button>
+          </span>
         </div>
+      </form>
+
+      <div id="searchFooterOverlay"></div>
+      <div id="centerTextOverlay">
+        <h1 class="welcome">RESERVE YOUR SPOT</h1>
+        <h4>Easily find, rent, and list available parking spaces in your city.</h4>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="shadow"></div> -->
+
+  <section id="main-list" ng-show="listPopulated">
+    <h1 id="searchHeading">Listings within <input id="dist-input" type="number" ng-model="distSearchInput" min="1" required> miles</h1>
+
+    <div id="google-map"></div>
+
+    <header class="list-headers">
+      <h4 class="list-address bold ">Address</h4>
+      <h4 class="list-price bold clickable" ng-click="sortPrice()">Price <img src="assets/dropdown.png"></h4>
+      <h4 class="list-distance bold clickable" ng-click="sortDist()">Distance <img src="assets/dropdown.png"></h4>
+    </header>
+
+    <ul class="list-table list-unstyled">
+      <li class="list-item" ng-repeat="item in data">
+        <div>
+          <p class="list-address">
+            {{ item.listing.street_address }}
+            {{ item.listing.city_name }},
+            {{ item.listing.state }}
+            {{ item.listing.zipcode }}
+          </p>
+          <p class="list-price">${{ item.listing.price }} / day</p>
+          <p class="list-distance">{{ item.dist }} miles</p>
+          <i ng-click="toggleExpand(item)" class="pull-right glyphicon chevron" ng-class="{'glyphicon-chevron-down': item.expand, 'glyphicon-chevron-right': !item.expand}"></i>
+        </div>
+        <div ng-show="item.expand">
+          <p class="list-contact"><span>Owner: </span> <strong>{{ item.username }}</strong></p>
+          <p class="list-contact"><span>Connect via </span><a target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to={{ item.email }}&amp;su=Parking%20spot%20request!&amp;body=Powered%20by%20DrivewayShare" class="gmail">gmail</a></p>
+          <p class="list-contact"><span>Connect via </span><a target="_blank" href="http://compose.mail.yahoo.com/?to={{ item.email }}&amp;subj=Parking%20spot%20request!&amp;body=Powered%20by%20DrivewayShare" class="yahoo">yahoo mail</a></p>
+          <p class="list-contact"><span>Connect via </span><a target="_blank" href="https://mail.live.com/default.aspx?rru=compose&amp;to={{ item.email }}&amp;subject=Parking%20spot%20request!&amp;body=Powered%20by%20DrivewayShare" class="msmail">hotmail, outlook, live mail</a></p>
+          <p class="list-contact"><span>Connect via </span><a target="_blank" href="http://mail.aol.com/mail/compose-message.aspx?to={{ item.email }}&amp;subject=Parking%20spot%20request!&amp;body=Powered%20by%20DrivewayShare" class="aol">aol mail</a></p>
+          <p class="list-contact"><span>Connect via </span><a href=# ng-click="sendEmail(item.email)">desktop mail</a></p>
+          <p class="list-contact"><span>Call </span><a href=# ng-click="callPhone(item.phone)">{{ item.username }}</a></p>
+          <p class="list-contact-description" ng-show="item.listing.description">{{ item.listing.description }}</p>
+          <div ng-show="item.expand">
+           <div><h2>Owner: {{ item.username }}</h2></div>
+           <div ng-show="item.listing.description"> <h3>Description</h3><p>{{ item.listing.description }}</p></div>
+           <button class="msgButton" ng-click="showDetails=true" ng-show="!showDetails">Message the Owner</button>
+           <div class="emailField" ng-class="{ 'hidden': ! showDetails }">
+           <form class="msgForm">
+             <textarea class="msgText" rows="7" cols="100" ng-model="message" placeholder="ie. Hi! I want to give you $$$ to park here!"></textarea><button class="sendButton" type="submit" value="submit" ng-click="sendMessage(item.email, item.username, message)">Send</button>
+            </form>  
+          </div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <div ng-show="!listPopulated">
+    <div id='backDiv'>
+       <div id='aaa'>
+          <div id='bbb'>
+             <div id='ccc'>
+                <ul class="list-unstyled">
+                  <li><h4>Driveway Share is a way to share your personal parking spot with someone in need.  We connect people who have extra spaces in congested areas where parking can be both hard to find and pricey.</h4></li>
+                  <li><h4>Go ahead and try it out!  Search for listings near an address on the homepage.</h4></li>
+                  <li><h4>If you would like to post a listing, signin/signup and create a new listing from your profile page.</h4></li>
+                </ul>
+             </div>
+          </div>
        </div>
-     </li>
-   </ul>
- </section>
+    </div>
+    <div id='breaker'></div>
+    <div id='top'>
+       <span id="meetTheTeam">Meet the team</span>
+    </div>
+    <div id='bottom'>
+       <div class = 'holder'>
+          <div>
+             <img src= "../assets/kingkas.jpg" class='pic'></img>
+          </div>
+          <div class='name'>Kasra Jahani</div>
+          <!-- <div class='Title'>Product Manager</div> -->
+       </div>
+       <div class = 'holder'>
+          <div>
+             <img src= "../assets/richard.jpg" class='pic'></img>
+          </div>
+          <div class='name'>Richard Yu</div>
+          <!-- <div class='Title'>Front-end Developer</div> -->
+       </div>
+       <div class = 'holder'>
+          <div>
+             <img src= "../assets/hady.jpg" class='pic'></img>
+          </div>
+          <div class='name'>Hady Wahby</div>
+          <!-- <div class='Title'>Back-end Developer</div> -->
+       </div>
+       <div class = 'holder'>
+          <div>
+             <img src= "../assets/kyle.jpg" class='pic'></img>
+          </div>
+          <div class='name'>Kyle Kodani</div>
+          <!-- <div class='Title'>Scrum Master</div> -->
+       </div>
+    </div>
+  </div>
 
 </div>
+

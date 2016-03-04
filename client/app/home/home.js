@@ -27,6 +27,8 @@ app.controller("HomeController", function($scope, Nav, Listings, Message, Auth) 
     window.setTimeout(function() {
       $scope.displayMap();
     }, 10);
+
+    console.log($scope.data);
   }
 
   $scope.getSearch = function() {
@@ -101,7 +103,7 @@ app.controller("HomeController", function($scope, Nav, Listings, Message, Auth) 
       temp.push(markerIndex.toString(), $scope.data[i].listing.latitude, $scope.data[i].listing.longitude);
       markers.push(temp);
       markerIndex++;
-      infoWindowContent.push("$" + $scope.data[i].listing.price);
+      infoWindowContent.push("$" + $scope.data[i].listing.price + " / day");
     }
 
     function initializeMap() {
