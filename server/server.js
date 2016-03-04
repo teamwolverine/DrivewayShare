@@ -172,7 +172,7 @@ app.post("/api/message", function(req, res){
         console.log(error);
     	}
     	else{
-        console.log("Message sent: " + response.text);
+        console.log("Message sent: " + response);
     	}
 		});
 	});

@@ -41,16 +41,6 @@ app.controller("HomeController", function($scope, Nav, Listings, Message, Auth) 
     });
   };
 
-  $scope.sendEmail = function(email){
-    var mail = 'mailto:' + email;
-    window.location.href = mail;
-  };
-
-  $scope.callPhone = function(phone){
-    var phone = 'tel:' + phone;
-    window.location.href = phone;
-  };
-
   $scope.sendMessage = function(email, username, msg){
     console.log("+++ line 53 home.js ", username)
     console.log("inside sendMessage")
@@ -63,7 +53,13 @@ app.controller("HomeController", function($scope, Nav, Listings, Message, Auth) 
       email: email //owner email
 	}
     Message.sendMessage(sendObj)
-    angular.element(document).find("input").val("");
+    angular.element(document).find("textarea").val("");
+    swal({
+        title: 'Success!',
+        text: "Your message has been sent",
+        type: "success",
+        timer: 2000
+      });
     }
   };
 

@@ -48,18 +48,15 @@
           <p class="list-distance">{{ item.dist }} miles</p>
           <i ng-click="toggleExpand(item)" class="pull-right glyphicon chevron" ng-class="{'glyphicon-chevron-down': item.expand, 'glyphicon-chevron-right': !item.expand}"></i>
         </div>
-        <div ng-show="item.expand">
-          <p class="list-contact"><span>Owner: </span> <strong>{{ item.username }}</strong></p>
-          <p class="list-contact"><span>Connect via </span><a target="_blank" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to={{ item.email }}&amp;su=Parking%20spot%20request!&amp;body=Powered%20by%20DrivewayShare" class="gmail">gmail</a></p>
-          <p class="list-contact"><span>Connect via </span><a target="_blank" href="http://compose.mail.yahoo.com/?to={{ item.email }}&amp;subj=Parking%20spot%20request!&amp;body=Powered%20by%20DrivewayShare" class="yahoo">yahoo mail</a></p>
-          <p class="list-contact"><span>Connect via </span><a target="_blank" href="https://mail.live.com/default.aspx?rru=compose&amp;to={{ item.email }}&amp;subject=Parking%20spot%20request!&amp;body=Powered%20by%20DrivewayShare" class="msmail">hotmail, outlook, live mail</a></p>
-          <p class="list-contact"><span>Connect via </span><a target="_blank" href="http://mail.aol.com/mail/compose-message.aspx?to={{ item.email }}&amp;subject=Parking%20spot%20request!&amp;body=Powered%20by%20DrivewayShare" class="aol">aol mail</a></p>
-          <p class="list-contact"><span>Connect via </span><a href=# ng-click="sendEmail(item.email)">desktop mail</a></p>
-          <p class="list-contact"><span>Call </span><a href=# ng-click="callPhone(item.phone)">{{ item.username }}</a></p>
-          <p class="list-contact-description" ng-show="item.listing.description">{{ item.listing.description }}</p>
-          <form ng-submit="sendMessage(item.email, item.username, message)">
-          <input ng-model="message" placeholder="email the owner" style="width:40%; height: 40%"></input>
-          </form>
+          <div ng-show="item.expand">
+           <div><h2>Owner: {{ item.username }}</h2></div>
+           <div ng-show="item.listing.description"> <h3>Description</h3><p>{{ item.listing.description }}</p></div>
+           <button class="msgButton" ng-click="showDetails=true" ng-show="!showDetails">Message the Owner</button>
+           <div class="emailField" ng-class="{ 'hidden': ! showDetails }">
+           <form class="msgForm">
+             <textarea class="msgText" rows="7" cols="100" ng-model="message" placeholder="ie. Hi! I want to give you $$$ to park here!"></textarea><button class="sendButton" type="submit" value="submit" ng-click="sendMessage(item.email, item.username, message)">Send</button>
+            </form>  
+          </div>
         </div>
       </li>
     </ul>
