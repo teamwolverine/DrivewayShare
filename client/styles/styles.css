@@ -571,11 +571,11 @@ video {
    position: relative;
    width: 100%;
    background-color: white;
-   height: 15em;
+   height: 20em;
    text-align: center;
 }
 #bottom {
-  margin-top: 60px;
+  margin-top: 0px;
    position: relative;
    width: 100%;
    background-color: #00796B;
