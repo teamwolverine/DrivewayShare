@@ -105,6 +105,42 @@ a {
   border: 1px solid #00796B;
 }
 
+.msgButton {
+  background-color: #00796B;
+  border-radius: 1px;
+  border: 1px solid #00796B;
+  color: white;
+  font-size: 18px;
+  padding: 4px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.sendButton {
+  display: block;
+  margin: 0 auto;
+  background-color: #00796B;
+  border-radius: 1px;
+  border: 1px solid #00796B;
+  color: white;
+  font-size: 18px;
+  padding: 3px;
+  width: 75px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.msgForm {
+  text-align: center;
+}
+
+.msgText {
+  font-size: 15px;
+  padding: 5px;
+  border: 2px solid #CFCFCF;
+}
+
 #main-search-button:hover {
   background-color: #018A6C;
 }
