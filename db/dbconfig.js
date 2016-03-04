@@ -3,16 +3,14 @@ if(!process.env.HOST){
   var config = require('./config.js');
 }
 
-console.log(config.domainname);
-
 var knex = require("knex")({
   client: "mysql",
   connection: {
-    host      : process.env.DOMAINNAME || config.domainname,
-    user      : process.env.USERNAME || config.username,
-    password  : process.env.PASSWORD || config.password,
-    database  : process.env.DATABASE || config.database,
-    charset   : process.env.CHARSET || config.charset
+    host: process.env.DOMAINNAME || config.domainname,
+    user: process.env.USERNAME || config.username,
+    password: process.env.PASSWORD || config.password,
+    database: process.env.DATABASE || config.database,
+    charset: process.env.CHARSET || config.charset
   }
 });
 
