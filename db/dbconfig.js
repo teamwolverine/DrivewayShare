@@ -3,7 +3,6 @@ if(!process.env.HOST){
   var config = require('./config.js');
 }
 
-console.log(config.domainname);
 
 var knex = require("knex")({
   client: "mysql",
