@@ -133,10 +133,11 @@ app.post("/api/toggle", function(req, res) {
 });
 
 app.post("/api/message", function(req, res){
-	console.log("+++line 137 server.js ", req.body.username)
+	//console.log("+++line 137 server.js ", req.body.address)
 	var recipientEmail = req.body.email;
 	var recipientUsername = req.body.username;
 	var messageBody = req.body.msg;
+	//var recipientAddress = req.body.address.street_address;
 	//console.log("+++ line 137 server.js ", req.body.token)
 	var token = req.body.token;
 	var id = util.getCurrentUserID(token);
@@ -166,13 +167,15 @@ app.post("/api/message", function(req, res){
     	text: messageBody + "\r\n\n\nPowered by DrivewayShare\ndrivewayshareapp.herokuapp.com" // plaintext body
 		}
 
+		// "RE: Your parking spot at: " + recipientAddress + "\r\n\n" +
+
 		// send mail with defined transport object
 		transport.sendMail(mailOptions, function(error, response){
    	 if(error){
         console.log(error);
     	}
     	else{
-        console.log("Message sent: " + response);
+        console.log("Message sent: " + Object.keys(response.response));
     	}
 		});
 	});
