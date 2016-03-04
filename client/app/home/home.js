@@ -27,6 +27,8 @@ app.controller("HomeController", function($scope, Nav, Listings, Message, Auth) 
     window.setTimeout(function() {
       $scope.displayMap();
     }, 10);
+
+    console.log($scope.data);
   }
 
   $scope.getSearch = function() {
@@ -49,17 +51,19 @@ app.controller("HomeController", function($scope, Nav, Listings, Message, Auth) 
     window.location.href = phone;
   };
 
-  $scope.sendMessage = function(email, msg){
+  $scope.sendMessage = function(email, username, msg){
+    console.log("+++ line 53 home.js ", username)
     console.log("inside sendMessage")
     if(Auth.isSignedIn){
       console.log("+++ line 54 home.js ", Auth.getToken())
       var sendObj = {
       msg: msg,
+      username: username,
       token: Auth.getToken(),
       email: email //owner email
-    }
+	}
     Message.sendMessage(sendObj)
-    //msg.val('');
+    angular.element(document).find("input").val("");
     }
   };
 
@@ -103,7 +107,7 @@ app.controller("HomeController", function($scope, Nav, Listings, Message, Auth) 
       temp.push(markerIndex.toString(), $scope.data[i].listing.latitude, $scope.data[i].listing.longitude);
       markers.push(temp);
       markerIndex++;
-      infoWindowContent.push("$" + $scope.data[i].listing.price);
+      infoWindowContent.push("$" + $scope.data[i].listing.price + " / day");
     }
 
     function initializeMap() {
@@ -122,7 +126,7 @@ app.controller("HomeController", function($scope, Nav, Listings, Message, Auth) 
 
       var infoWindow = new google.maps.InfoWindow();
       var centerMarker = new google.maps.LatLng($scope.mainSearch.lat, $scope.mainSearch.lng);
-      var bounds = new google.maps.LatLngBounds(centerMarker); 
+      var bounds = new google.maps.LatLngBounds(centerMarker);
 
       for(var j = 0; j < markers.length; j++) {
         var position = new google.maps.LatLng(markers[j][1], markers[j][2]);

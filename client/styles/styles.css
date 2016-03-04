@@ -5,8 +5,13 @@
   font-size: 10px;
 }
 
-a {
+body {
+  background-color: #EDEFED;
+}
+
+a:focus {
   text-decoration: none;
+  color: #fff;
 }
 
 #nav-bar {
@@ -33,7 +38,6 @@ a {
   color: white;
   font-size: 3em;
   font-weight: bold;
-  /*font-family: 'Oswald', sans-serif;*/
 }
 
 #nav-links {
@@ -172,6 +176,10 @@ a {
   text-align: center;
 }
 
+.list-table {
+
+}
+
 .chevron {
   font-size: 2em;
   cursor: pointer;
@@ -210,7 +218,7 @@ a {
 
 .clickable:hover {
   cursor: pointer;
-  background-color: #eee;
+  background-color: #ddd;
 }
 
 .list-price, .list-distance {
@@ -402,6 +410,11 @@ textarea {
   padding: 6px;
   width: 100px;
   color: white;
+  font-size: 1.8em;
+}
+
+.md-button:hover {
+  background: #527af2;
 }
 
 .md-button[disabled] {
@@ -454,7 +467,7 @@ textarea {
 
 /*Video*/
 
-video { 
+video {
   position: fixed;
   top: 0%;
   /*left: 50%;*/
@@ -471,7 +484,7 @@ video {
   transition: 1s opacity;
   background-color: #111;
 }
-.stopfade { 
+.stopfade {
    opacity: .5;
 }
 
@@ -479,15 +492,15 @@ video {
    padding: 8%;
 }
 #bbb {
-   border: 5px solid #00796B;
-   width: 90%;
+   border: 1px solid #00796B;
+   width: 100%;
    background-color: black;
    opacity: 0.8;
 }
 #breaker {
    background-color: #00796B;
    width: 100%;
-   height: 10px;
+   height: 5px;
    position: relative;
 }
 
@@ -498,18 +511,22 @@ video {
    font-weight:bolder;
 }
 
+#meetTheTeam {
+  font-size: 3em;
+}
+
 #top {
    position: relative;
    width: 100%;
    background-color: white;
-   height: 20em;
+   height: 15em;
    text-align: center;
 }
 #bottom {
    position: relative;
    width: 100%;
    background-color: #00796B;
-   height: 20em;
+   height: 10em;
 }
 #backDiv {
    background-size:cover;
@@ -520,7 +537,7 @@ video {
 }
 .name {
    color: white;
-   font-size: 200%;
+   font-size: 1.8em;
 }
 .Title {
    font-size: 200%;
@@ -533,7 +550,7 @@ video {
 }
 
 .holder {
-   border: 0.5em solid black;
+   border: 2px solid #222;
    width: 19%;
    text-align: center;
    padding-top: -30%;
@@ -544,6 +561,10 @@ video {
    margin-top: -10%;
 }
 .holder:hover {
-   box-shadow: 4px 4px 2px black;
-   border: 0.6em solid black;
+   box-shadow: 2px 2px 1px #222;
+}
+
+.input-text {
+  font-size: 1.8em;
+  color: #666;
 }

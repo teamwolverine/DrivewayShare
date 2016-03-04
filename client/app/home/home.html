@@ -1,5 +1,4 @@
 <div id="home-container">
-
   <div id="videoSearch">
     <video autoplay poster="" id="bgvid" loop ng-show="!listPopulated">
       <source src="assets/video.mp4" type="video/mp4">
@@ -16,13 +15,14 @@
       </form>
 
       <div id="searchFooterOverlay"></div>
-      <div id="centerTextOverlay"><h1 class="welcome">RESERVE YOUR SPOT</h1><h4>Easily find, rent, and list available parking spaces in your city.</h4></div>
+      <div id="centerTextOverlay">
+        <h1 class="welcome">RESERVE YOUR SPOT</h1>
+        <h4>Easily find, rent, and list available parking spaces in your city.</h4>
+      </div>
     </div>
- 
-
   </div>
 
-  <div class="shadow"></div>
+  <!-- <div class="shadow"></div> -->
 
   <section id="main-list" ng-show="listPopulated">
     <h1 id="searchHeading">Listings within <input id="dist-input" type="number" ng-model="distSearchInput" min="1" required> miles</h1>
@@ -57,7 +57,7 @@
           <p class="list-contact"><span>Connect via </span><a href=# ng-click="sendEmail(item.email)">desktop mail</a></p>
           <p class="list-contact"><span>Call </span><a href=# ng-click="callPhone(item.phone)">{{ item.username }}</a></p>
           <p class="list-contact-description" ng-show="item.listing.description">{{ item.listing.description }}</p>
-          <form ng-submit="sendMessage(item.email, message)">
+          <form ng-submit="sendMessage(item.email, item.username, message)">
           <input ng-model="message" placeholder="email the owner" style="width:40%; height: 40%"></input>
           </form>
         </div>
@@ -65,4 +65,55 @@
     </ul>
   </section>
 
+  <div ng-show="!listPopulated">
+    <div id='backDiv'>
+       <div id='aaa'>
+          <div id='bbb'>
+             <div id='ccc'>
+                <ul class="list-unstyled">
+                  <li><h4>Driveway Share is a way to share your personal parking spot with someone in need.  We connect people who have extra spaces in congested areas where parking can be both hard to find and pricey.</h4></li>
+                  <li><h4>Go ahead and try it out!  Search for listings near an address on the homepage.</h4></li>
+                  <li><h4>If you would like to post a listing, signin/signup and create a new listing from your profile page.</h4></li>
+                </ul>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div id='breaker'></div>
+    <div id='top'>
+       <span id="meetTheTeam">Meet the team</span>
+    </div>
+    <div id='bottom'>
+       <div class = 'holder'>
+          <div>
+             <img src= "../assets/kingkas.jpg" class='pic'></img>
+          </div>
+          <div class='name'>Kasra Jahani</div>
+          <!-- <div class='Title'>Product Manager</div> -->
+       </div>
+       <div class = 'holder'>
+          <div>
+             <img src= "../assets/richard.jpg" class='pic'></img>
+          </div>
+          <div class='name'>Richard Yu</div>
+          <!-- <div class='Title'>Front-end Developer</div> -->
+       </div>
+       <div class = 'holder'>
+          <div>
+             <img src= "../assets/hady.jpg" class='pic'></img>
+          </div>
+          <div class='name'>Hady Wahby</div>
+          <!-- <div class='Title'>Back-end Developer</div> -->
+       </div>
+       <div class = 'holder'>
+          <div>
+             <img src= "../assets/kyle.jpg" class='pic'></img>
+          </div>
+          <div class='name'>Kyle Kodani</div>
+          <!-- <div class='Title'>Scrum Master</div> -->
+       </div>
+    </div>
+  </div>
+
 </div>
+
