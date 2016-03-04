@@ -218,7 +218,7 @@ a:focus {
 
 .clickable:hover {
   cursor: pointer;
-  background-color: #eee;
+  background-color: #ddd;
 }
 
 .list-price, .list-distance {
