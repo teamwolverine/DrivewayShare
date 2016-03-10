@@ -566,6 +566,11 @@ video {
    width: 100%;
 }
 
+#andrew {
+   height: 114px;
+   width: 170px;
+}
+
 .holder {
    border: 2px solid #222;
    width: 19%;
