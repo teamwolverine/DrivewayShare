@@ -513,7 +513,7 @@ video {
    background-color: black;
    opacity: 0.8;
 }
-#breaker {
+.breaker {
    background-color: #00796B;
    width: 100%;
    height: 5px;
@@ -527,18 +527,18 @@ video {
    font-weight:bolder;
 }
 
-#meetTheTeam {
+.meetTheTeam {
   font-size: 3em;
 }
 
-#top {
+.top {
    position: relative;
    width: 100%;
    background-color: white;
    height: 24em;
    text-align: center;
 }
-#bottom {
+.bottom {
   margin-top: 0px;
    position: relative;
    width: 100%;
